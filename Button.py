@@ -1,5 +1,5 @@
 import time
-import pygame
+import pygame as Py
 
 class Button():
     def __init__(self, x, y, text, font, scale, color, hover_color):
@@ -24,7 +24,7 @@ class Button():
 
     def check_clicked(self):
         action = False
-        pos = pygame.mouse.get_pos()
+        pos = Py.mouse.get_pos()
         if self.clicked and time.time() - self.last_click_time < 0.5:
 
             return False

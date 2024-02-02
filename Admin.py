@@ -31,7 +31,7 @@ class Admin:
         self.product.find(id)
 
     def find_category_all(self):
-        return self.product.find_all()
+        return self.category.find_all()
 
     def find_product_all(self):
         return self.product.find_all()

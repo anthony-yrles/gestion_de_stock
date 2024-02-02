@@ -26,5 +26,5 @@ class Category:
         return self.db.fetch(query, params)
     
     def find_all(self):
-        query = f'SELECT * FROM cage'
+        query = f'SELECT * FROM category'
         return self.db.fetch(query)
