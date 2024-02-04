@@ -5,15 +5,16 @@ class Product:
         self.table = 'product'
         self.db = Db(host='localhost', user='root', password='SKenan30mg/', database='store')
 
-    def create(self, name, descritpion, prix, quantity, id_category):
-        query = f'INSERT INTO {self.table} (name, descritpion, prix, quantity, id_category) VALUES (%s, %s, %s, %s, %s)'
-        params = (name, descritpion, prix, quantity, id_category)
+    def create(self, name, description, price, quantity, id_category):
+        query = f'INSERT INTO {self.table} (name, description, price, quantity, id_category) VALUES (%s, %s, %s, %s, %s)'
+        params = (name, description, price, quantity, id_category)
         self.db.executeQuery(query, params)
     
-    def update(self, id, name, descritpion, prix, quantity, id_category):
-        query = f'UPDATE {self.table} SET name=%s, descritpion=%s, prix=%s, quantity=%s, id_category=%s WHERE id=%s'
-        params = (name, descritpion, prix, quantity, id_category, id)
-        self.db.executeQuery(query, params)
+    def update(self, id, column, new_value):
+        query = f"UPDATE {self.table} SET {column} = %s WHERE id = %s"
+        values = (new_value, id)
+        self.db.executeQuery(query, values)
+
     
     def delete(self, id):
         query = f'DELETE FROM {self.table} WHERE id=%s'

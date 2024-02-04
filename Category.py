@@ -10,10 +10,10 @@ class Category:
         params = (name,)
         self.db.executeQuery(query, params)
 
-    def update(self, id, name):
-        query = f'UPDATE {self.table} SET name=%s WHERE id=%s'
-        params = (name, id)
-        self.db.executeQuery(query, params)
+    def update(self, id, column, new_value):
+        query = f"UPDATE {self.table} SET {column} = %s WHERE id = %s"
+        values = (new_value, id)
+        self.db.executeQuery(query, values)
 
     def delete(self, id):
         query = f'DELETE FROM {self.table} WHERE id=%s'

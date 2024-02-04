@@ -15,8 +15,8 @@ class Admin:
     def update_category(self, id, name):
         self.category.update(id, name)
 
-    def update_product(self, id, name, descritpion, prix, quantity, id_category):
-        self.product.update(id, name, descritpion, prix, quantity, id_category)
+    def update_product(self, id, values, new_value):
+        self.product.update(id, values, new_value)
 
     def delete_category(self, id):
         self.category.delete(id)
